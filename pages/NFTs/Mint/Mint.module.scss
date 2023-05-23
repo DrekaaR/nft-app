@@ -1,0 +1,140 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(rem(200), 1fr);
+  gap: rem(20);
+}
+
+.leftSide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(20);
+  .item {
+    &:last-child {
+      grid-column: span 2;
+    }
+  }
+}
+
+.item {
+  padding: rem(20);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(83, 83, 83, 0.1) 100%
+  );
+  border: rem(2) solid #9191a1;
+  .label {
+    font-weight: 700;
+    text-align: center;
+    line-height: math.div(28, 24);
+    font-size: rem(24);
+    margin-bottom: rem(5);
+  }
+  .value {
+    color: #cdcdcd;
+    font-weight: 700;
+    text-align: center;
+  }
+  .text {
+    text-align: center;
+    font-family: $fontVictor;
+    font-weight: 600;
+    line-height: math.div(25, 18);
+    color: #cdcdcd;
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+  .cost {
+    text-align: center;
+    line-height: math.div(25, 21);
+    font-size: rem(21);
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+}
+
+.sliderLabel {
+  font-weight: 700;
+  line-height: math.div(28, 24);
+  font-size: rem(24);
+  text-align: left;
+  padding-bottom: rem(5);
+  margin-bottom: rem(20);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+}
+
+.actions {
+  padding-top: rem(20);
+  margin-top: rem(27);
+  border-top: rem(1) solid rgba(196, 196, 209, 0.3);
+  button {
+    width: 100%;
+    max-width: rem(400);
+  }
+}
+
+// =========================================================
+.successScreen {
+  text-align: center;
+  button {
+    margin: 0 auto;
+    @media (min-width: $mobile) {
+      min-width: rem(360);
+    }
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+  svg {
+    font-size: rem(150);
+    color: #25b574;
+    margin: 0 auto rem(25) auto;
+  }
+}
+
+.successTitle {
+  font-size: rem(32);
+  line-height: math.div(38, 32);
+  font-weight: 700;
+  color: #25b574;
+  text-transform: uppercase;
+  text-align: center;
+  &:not(:last-child) {
+    margin-bottom: rem(15);
+  }
+}
+
+.successText {
+  text-align: center;
+  color: #cdcdcd;
+  font-family: $fontVictor;
+  font-weight: 600;
+  line-height: math.div(25, 18);
+  &:not(:last-child) {
+    margin-bottom: rem(40);
+  }
+  a {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: rem(1);
+      background-color: #cdcdcd;
+      transition: all 0.2s ease 0s;
+    }
+    &:hover {
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+@use "sass:math";
+@import "../../../styles/index";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: rem(30);
+  flex-wrap: wrap;
+  row-gap: rem(10);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+  padding-bottom: rem(15);
+
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+
+  h2 {
+    @include adaptiveValue("font-size", 36, 24);
+    color: #fff;
+    line-height: math.div(43, 36);
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .headerActions {
+    display: flex;
+    column-gap: rem(10);
+    font-size: rem(22);
+    font-weight: 700;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 rem(30);
+      height: rem(40);
+      border-width: 2px 1px;
+      border-style: solid;
+      font-size: rem(18);
+      border-color: #9191a1;
+      background-color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+
+      &.active {
+
+        background: linear-gradient(180deg, #9191a1 6.85%, #80808c 100%);
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+}
+
+.body {
+  .collection {
+    &:not(:last-child) {
+      margin-bottom: rem(50);
+    }
+  }
+
+  h3 {
+    text-transform: capitalize;
+    font-size: rem(32);
+    font-weight: 700;
+    line-height: math.div(38, 24);
+
+    &:not(:last-child) {
+      margin-bottom: rem(5);
+    }
+  }
+
+  .items {
+    width: 100%;
+    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(230), 1fr));
+    gap: rem(30);
+
+    @media (max-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(rem(145), 1fr));
+      gap: rem(20);
+    }
+  }
+
+  .item {
+    text-align: left;
+
+    &[disabled] {
+      .paymethod {
+        opacity: 0.8;
+      }
+
+      .image {
+        &::after {
+          content: "[Not Available]";
+          opacity: 1;
+          visibility: visible;
+          background: linear-gradient(
+            0deg,
+            rgba(17, 17, 17, 0.5),
+            rgba(17, 17, 17, 0.5)
+          );
+        }
+      }
+
+      pointer-events: none;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .image:after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    .image {
+      border: rem(2) solid #9191a1;
+      padding-bottom: 100%;
+      position: relative;
+      margin-bottom: rem(10);
+
+      &::after {
+        content: "";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        font-size: rem(14);
+        font-weight: 700;
+        text-transform: capitalize;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.05);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease 0s;
+      }
+
+      video,
+      img {
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+
+      .paymethod {
+        position: absolute;
+        z-index: 3;
+        top: rem(10);
+        right: rem(10);
+
+        svg {
+          height: rem(30);
+          width: rem(30);
+        }
+      }
+    }
+
+    .name {
+      font-size: rem(18);
+      font-weight: 700;
+      line-height: math.div(22, 18);
+      @media (max-width: $mobile) {
+        font-size: rem(16);
+      }
+    }
+  }
+}

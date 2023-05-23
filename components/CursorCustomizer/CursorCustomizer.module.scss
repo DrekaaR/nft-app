@@ -1,0 +1,21 @@
+@use "sass:math";
+@import "../../styles/index";
+
+.cursor{
+  @media (any-hover: hover) {
+    position: fixed;
+    pointer-events: none;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    width: rem(25);
+    height: rem(25);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    //box-shadow: 0px 0px 2px #009BF2, 0px 0px 10px #009BF2, 0px 0px 20px #00E4F2;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  @media (any-hover: none) {
+    display: none;
+  }
+}

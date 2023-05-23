@@ -1,0 +1,9 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.container {
+   max-width: rem($maxWidthContainer);
+   box-sizing: content-box;
+   margin: 0 auto;
+   padding: 0 rem(math.div($containerPadding, 2));
+}

@@ -1,0 +1,26 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.title {
+   @include adaptiveValue("font-size", 72, 32);
+   line-height: math.div(86, 72);
+   font-weight: 700;
+   text-transform: uppercase;
+   padding-bottom: rem(10);
+   border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+.buttons {
+   display: grid;
+   align-items: center;
+   row-gap: rem(20);
+   a {
+      font-size: rem(32);
+      text-transform: uppercase;
+      height: rem(80);
+   }
+}

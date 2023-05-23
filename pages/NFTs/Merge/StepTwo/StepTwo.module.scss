@@ -1,0 +1,30 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.stepTwoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(20);
+}
+
+.colorItem{
+  display: flex;
+  padding: 0 rem(10);
+  justify-content:space-between;
+  align-items: center;
+  column-gap: rem(30);
+  height: rem(40);
+  font-family: $fontVictor;
+  font-weight: 600;
+  line-height: math.div(28, 18);
+  color: inherit;
+  &:not(:last-child) {
+    margin-bottom: rem(5);
+  }
+  span{
+    &:first-child{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

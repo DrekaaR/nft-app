@@ -1,0 +1,110 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.stepOneContainer{
+  display: grid;
+  grid-template-columns: minmax(rem(100), 1fr) auto minmax(rem(100), 1fr);
+  gap: rem(38);
+  svg{
+    display: flex;
+    align-self: center;
+  }
+}
+// =========================================================
+.shapeImage {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: calc(100% - rem(4));
+  border: rem(2) solid #9191a1;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .editIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: rem(14);
+    top: rem(10);
+    right: rem(10);
+    border: rem(2) solid #fff;
+    height: rem(30);
+    width: rem(30);
+  }
+}
+
+// =========================================================
+.imageNFT {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: calc(100% - rem(4));
+  border: rem(2) solid #9191a1;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .editIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: rem(14);
+    top: rem(10);
+    right: rem(10);
+    border: rem(2) solid #fff;
+    height: rem(30);
+    width: rem(30);
+  }
+}
+// =========================================================
+.hintBtn {
+  display: block;
+  text-align: center;
+  background-color: #111111;
+  height: rem(290);
+  border: rem(2) solid #9191a1;
+  transition: background-color 0.2s ease 0s;
+  padding: 0 rem(25);
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #1e1e1e;
+    }
+  }
+  .hintBtnTitle {
+    margin: 0 auto rem(10) auto;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0 rem(25);
+    text-transform: uppercase;
+    align-items: center;
+    min-width: rem(135);
+    height: rem(135);
+    border: rem(4) solid #9191a1;
+    font-size: rem(42);
+    color: #9191a1;
+    white-space: nowrap;
+    text-transform: uppercase svg {
+      color: #9191A1;
+    }
+  }
+  .hintBtnText {
+    font-size: rem(14);
+    line-height: math.div(20, 14);
+    text-align: center;
+    color: #9191a1;
+    font-family: $fontVictor;
+  }
+}

@@ -1,0 +1,27 @@
+@import "mixins";
+
+// Default font family
+$fontFamily: "unispace";
+// Other fonts families
+$fontVictor: 'victorMono', serif;
+// Default font size
+$fontSize: rem(18);
+// Default color
+$mainColor: #fff;
+// Min screen size
+$minWidth: 768;
+// Max screen size
+$maxWidth: 1920;
+// Container width
+$maxWidthContainer: 1720;
+// Container padding
+$containerPadding: 80;
+$containerWidth: $maxWidthContainer + $containerPadding;
+// PС breakpoint
+$pc: em($containerWidth);
+// Tablet breakpoint
+$tablet: em(991.98);
+// Mobile breakpoint
+$mobile: em(767.98);
+// Mobile small breakpoint
+$mobileSmall: em(479.98);

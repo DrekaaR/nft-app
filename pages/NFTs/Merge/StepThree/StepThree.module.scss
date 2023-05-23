@@ -1,0 +1,55 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.stepThreeContainer {
+  display: grid;
+  grid-template-columns: rem(335) 1fr;
+  column-gap: rem(20);
+}
+
+.colors {
+  padding: rem(20);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.0375) 100%);
+  border: 2px solid #9191A1;
+  display: grid;
+  grid-template-columns: 1fr rem(110);
+  column-gap: rem(20);
+
+  .colorsTitle {
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    font-weight: 700;
+    padding-bottom: rem(6);
+    border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+    margin-bottom: rem(10);
+    span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .colorsImage {
+    padding-bottom: 100%;
+    border: 2px solid #9191A1;
+    position: relative;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+
+  .colorsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(10);
+    .color {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      height: rem(50);
+      width: rem(50);
+    }
+  }
+}

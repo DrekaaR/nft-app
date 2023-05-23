@@ -1,0 +1,75 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.title {
+   @include adaptiveValue("font-size", 36, 30);
+   line-height: math.div(43, 36);
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #ffffff;
+   padding-bottom: rem(5);
+   border-bottom: rem(1) solid rgba(196, 196, 209, 0.3);
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+// =========================================================
+.balance {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+   column-gap: rem(20);
+   padding-bottom: rem(20);
+   border-bottom: rem(1) solid rgba(196, 196, 209, 0.3);
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+.balanceItem {
+   flex: 1 1 auto;
+}
+
+.balanceLabel {
+   display: flex;
+   align-items: center;
+   margin-bottom: rem(5);
+   column-gap: rem(8);
+   color: #fff;
+   font-weight: 700;
+   line-height: math.div(22, 18);
+   svg {
+      flex: 0 0 rem(25);
+      font-size: rem(25);
+   }
+}
+
+.balanceValue {
+   width: 100%;
+   height: rem(44);
+   background: rgba(255, 255, 255, 0.1);
+   border-radius: rem(8);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: 700;
+   color: #CDCDCD;
+}
+
+// =========================================================
+.form{
+   display: grid;
+   row-gap: rem(20);
+   padding-bottom: rem(20);
+   border-bottom: rem(1) solid rgba(196, 196, 209, 0.3);
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+// =========================================================
+.actions{
+   display: grid;
+   grid-template-columns: auto 1fr;
+   column-gap: rem(20);
+}

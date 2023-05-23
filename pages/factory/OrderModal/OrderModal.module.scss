@@ -1,0 +1,126 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.errors{
+  position: absolute;
+  bottom: 0;
+  left: rem(50);
+  width: 100%;
+  color: red;
+  text-align: left;
+}
+
+.title {
+   @include adaptiveValue("font-size", 72, 32);
+   line-height: math.div(86, 72);
+   font-weight: 700;
+   text-transform: uppercase;
+   padding-bottom: rem(10);
+   border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+.gridContainer {
+   display: grid;
+   align-items: start;
+   gap: rem(40);
+   @media (min-width: $mobile) {
+      grid-template-columns: 1fr math.div(408, 943) * 100%;
+   }
+}
+
+.row {
+   display: grid;
+   gap: rem(20);
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+   @media (min-width: $mobileSmall) {
+      grid-template-columns: rem(145) 1fr;
+   }
+}
+
+.label {
+   display: block;
+   color: #cdcdcd;
+   font-weight: 700;
+   line-height: math.div(22, 18);
+   margin-bottom: rem(5);
+}
+
+.actions {
+   text-align: center;
+   .text {
+      text-align: center;
+      font-weight: 700;
+      display: block;
+      font-size: rem(21);
+      line-height: math.div(30, 21);
+      margin-bottom: rem(20);
+      span {
+         display: inline-flex;
+         column-gap: rem(8);
+         align-items: center;
+         svg {
+            transform: translate(0, rem(-1));
+            width: rem(25);
+            height: rem(25);
+         }
+      }
+   }
+}
+
+.preview {
+   border: rem(2) solid #9191a1;
+   padding-bottom: 100%;
+   position: relative;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+   }
+}
+
+// Success screen
+.successScreen {
+   text-align: center;
+   button {
+      margin: 0 auto;
+      @media (min-width: $mobile) {
+         min-width: rem(490);
+      }
+   }
+   svg {
+      font-size: rem(190);
+      color: #25b574;
+      margin: 0 auto rem(25) auto;
+   }
+}
+
+.successTitle {
+   font-size: rem(32);
+   line-height: math.div(38, 32);
+   font-weight: 700;
+   color: #25b574;
+   text-transform: uppercase;
+   text-align: center;
+   &:not(:last-child) {
+      margin-bottom: rem(10);
+   }
+}
+
+.successText {
+   text-align: center;
+   color: #cdcdcd;
+   font-family: $fontVictor;
+   font-weight: 600;
+   line-height: math.div(25, 18);
+   &:not(:last-child) {
+      margin-bottom: rem(40);
+   }
+}

@@ -1,0 +1,51 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.title {
+  font-size: rem(36);
+  line-height: math.div(43, 36);
+  color: #ffffff;
+  border-bottom: rem(1) solid rgba(196, 196, 209, 0.3);
+  padding-bottom: rem(10);
+  margin-bottom: rem(80);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  row-gap: rem(20);
+  height: 100%;
+  font-size: rem(21);
+  line-height: math.div(25, 21);
+  font-weight: 700;
+
+  svg {
+    margin: 0 auto;
+    width: rem(100);
+    height: rem(100);
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: rem(4) solid #9191a1;
+  color: #9191a1;
+  text-transform: uppercase;
+  font-weight: 700;
+  @include adaptiveValue("font-size", 48, 28);
+  line-height: math.div(58, 48);
+  padding: rem(30) rem(50) rem(25) rem(50);
+  transition: all 0.2s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #9191a1;
+      color: #ffffff;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "sass:math";
+@import "src/styles/index";
+
+// =========================================================
+.stepsButtons{
+  display: flex;
+  justify-content: center;
+  column-gap: rem(20);
+  button {
+    flex: 0 1 50%;
+    &[disabled]{
+      display: none;
+    }
+  }
+}
+
+// =========================================================
+// Layout
+.item {
+  padding: rem(20);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.0375) 100%
+  );
+  border: rem(2) solid #9191a1;
+}
+
+.itemTitle {
+  font-size: rem(24);
+  line-height: math.div(28, 24);
+  font-weight: 700;
+  padding-bottom: rem(6);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+  margin-bottom: rem(10);
+  span {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.title {
+  font-size: rem(36);
+  line-height: math.div(43, 36);
+  padding-bottom: rem(10);
+  margin-bottom: rem(20);
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+}
+
+.body {
+  height: rem(410);
+  padding-bottom: rem(20);
+  margin-bottom: rem(20);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+}

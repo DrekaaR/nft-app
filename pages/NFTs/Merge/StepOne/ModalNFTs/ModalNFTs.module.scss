@@ -1,0 +1,92 @@
+@use "sass:math";
+@import "../../../../../styles/index";
+
+.mainTitle {
+  @include adaptiveValue("font-size", 72, 32);
+  line-height: math.div(86, 72);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: rem(10);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+  margin-bottom: rem(20);
+}
+
+.search {
+  position: relative;
+  margin-bottom: rem(20);
+  .searchIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: rem(5);
+    height: 100%;
+    width: rem(40);
+  }
+  input {
+    padding-left: rem(45);
+  }
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(rem(250), 1fr));
+  gap: rem(30);
+}
+
+.item {
+  text-align: left;
+  @media (any-hover: hover) {
+    &:hover {
+      .image {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.image {
+  position: relative;
+  padding-bottom: 100%;
+  margin-bottom: rem(10);
+  border: rem(2) solid #9191a1;
+  overflow: hidden;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    will-change: transform;
+    transition: transform 0.2s ease 0s;
+  }
+}
+
+.title {
+  @include adaptiveValue("font-size", 21, 18);
+  line-height: math.div(25, 21);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.NFTsItemsWrapper{
+   position: relative;
+   min-height: rem(500);
+}
+
+.notFoundTitle{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   text-align: center;
+   height: 100%;
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   @include adaptiveValue("font-size", 32, 24);
+}

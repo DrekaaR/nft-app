@@ -1,0 +1,81 @@
+@use "sass:math";
+@import "src/styles/index";
+
+$clipPath: 30px;
+
+.loader {
+  position: fixed;
+  z-index: 10;
+  top: rem(50);
+  left: calc(50% - rem(210));
+  padding: rem(44) rem(28) rem(40) rem(28);
+  display: flex;
+  justify-content: center;
+  //width: 100%;
+  max-width: rem(500);
+  align-items: center;
+  column-gap: rem(20);
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, #07090D -3.62%, rgba(2, 3, 4, 0.8) 33.21%, #020304 72.43%);
+    clip-path: polygon(
+        $clipPath 0,
+        100% 0,
+        100% calc(100% - $clipPath),
+        calc(100% - $clipPath) 100%,
+        0 100%,
+        0 $clipPath
+    );
+
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    width: calc(100% + rem(4));
+    height: calc(100% + rem(4));
+    top: rem(-2);
+    left: rem(-2);
+    background-color: #9191a1;
+    clip-path: polygon(
+        $clipPath 0,
+        100% 0,
+        100% calc(100% - $clipPath),
+        calc(100% - $clipPath) 100%,
+        0 100%,
+        0 $clipPath
+    );
+  }
+}
+
+.loaderCloseBtn {
+  position: absolute;
+  top: rem(10);
+  right: rem(10);
+  width: rem(25);
+  height: rem(25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(5);
+  border: rem(2) solid #9191A1;
+  color: #9191a1;
+}
+
+.loaderIcon {
+  font-size: rem(70);
+}
+
+.loaderText {
+  flex: 1 1 auto;
+  font-weight: 700;
+  font-size: rem(32);
+  line-height: math.div(38, 32);
+  text-transform: uppercase;
+}

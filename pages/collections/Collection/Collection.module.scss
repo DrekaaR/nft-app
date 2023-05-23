@@ -1,0 +1,137 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.collHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: rem(30);
+  row-gap: rem(15);
+  padding-bottom: rem(10);
+  border-bottom: 1px solid rgba(196, 196, 209, 0.3);
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+}
+
+.collContent {
+  padding-bottom: rem(70);
+}
+
+.collInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, rem(100));
+  gap: rem(20);
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+  // Item
+  .collInfoItem {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(5);
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.0375) 100%
+    );
+    border: rem(2) solid #9191a1;
+    font-size: rem(18);
+  }
+  // Title
+  .collInfoTitle {
+    font-size: rem(24);
+    display: flex;
+    align-items: center;
+    column-gap: rem(5);
+
+    &:not(:last-child) {
+      margin-bottom: rem(5);
+    }
+  }
+  // Value flex box
+  .collInfoValue {
+    display: flex;
+    align-items: center;
+    column-gap: rem(5);
+    color: #ffffff;
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.collTitle {
+  font-size: rem(36);
+  font-weight: 700;
+  line-height: math.div(43, 36);
+  text-transform: capitalize;
+  span {
+    font-weight: 600;
+    font-size: rem(18);
+    line-height: math.div(28, 18);
+    font-family: $fontVictor;
+    color: #cdcdcd;
+    padding-left: rem(5);
+  }
+  strong {
+    color: #ffffff;
+  }
+}
+
+.collImage {
+  position: relative;
+  border: rem(2) solid #9191a1;
+  grid-row: span 2;
+
+  img {
+    max-width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.collActions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: rem(25) rem(30);
+  background: rgba(2, 3, 4, 1) 83.85%;
+  display: flex;
+  column-gap: rem(10);
+  > * {
+    flex: 1 1 auto;
+  }
+}
+
+.collText {
+  line-height: math.div(28, 18);
+  font-size: rem(18);
+  p {
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+}
+
+// =========================================================
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(20);
+
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+}
+

@@ -1,0 +1,91 @@
+@use "sass:math";
+@import "../../../../styles/index";
+
+.tabsButtons {
+   display: flex;
+   column-gap: rem(10);
+   max-width: rem(835);
+   position: relative;
+   top: rem(1);
+   button {
+      text-transform: capitalize;
+      position: relative;
+      @include adaptiveValue("font-size", 35, 24);
+      color: #fff;
+      line-height: math.div(43, 36);
+      transition: all 0.2s ease 0s;
+
+      &::after {
+         content: "";
+         z-index: -1;
+         position: absolute;
+         right: rem(17);
+         top: rem(3);
+         border: 20px solid transparent;
+         border-bottom: rem(44) solid transparent;
+         transform: rotate(-25deg);
+         border-left: 20px solid transparent;
+         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+         transition: all 0.2s ease 0s;
+      }
+
+      &.active {
+         position: relative;
+         z-index: 10 !important;
+
+         span {
+            background-color: #9191a1;
+         }
+      }
+
+      span {
+         pointer-events: none;
+         display: block;
+         padding: rem(10) rem(40);
+         background-color: #747481;
+         clip-path: polygon(30px 0, calc(100% - 30px) 0, 100% 100%, 0% 100%);
+      }
+
+      &:nth-child(1) {
+         &::after {
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 0% 100%);
+         }
+
+         span {
+            padding: rem(10) rem(40) rem(10) rem(15);
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 0% 100%);
+         }
+
+         z-index: 0;
+         transform: translate(0px, 0px);
+      }
+
+      &:nth-child(2) {
+         z-index: 3;
+         transform: translate(rem(-30), 0);
+      }
+
+      &:nth-child(3) {
+         z-index: 2;
+         transform: translate(rem(-60), 0);
+      }
+
+      &:last-child {
+         position: absolute;
+         z-index: 5;
+         right: 0;
+         top: 0;
+         transform: translate(0px, 0px) !important;
+
+         &::after {
+            display: none;
+         }
+
+         span {
+            padding-left: rem(40);
+            padding-right: rem(20);
+            clip-path: polygon(30px 0, 100% 0, 100% 100%, 0% 100%);
+         }
+      }
+   }
+}

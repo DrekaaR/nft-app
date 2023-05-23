@@ -1,0 +1,50 @@
+@use "sass:math";
+@import "src/styles/index";
+
+.slider {
+  position: relative;
+}
+
+.swiper {
+  position: relative;
+  width: 100%;
+  .slide {
+    background-position: center;
+    width: rem(300);
+    border: rem(2) solid #9191a1;
+    background-size: cover;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.navigation {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 108%;
+  .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9191a1;
+    height: rem(35);
+    width: rem(35);
+    svg {
+      height: rem(20);
+      width: rem(10);
+    }
+    &.arrowPrev {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
